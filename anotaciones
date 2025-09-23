@@ -1,0 +1,1 @@
+#para que pueda detectar el usuario agregar una variable que guarde el usuario con el que unicamente iniciaste sesión y luego utilice ese mismo para hacer el envio y la recepción
