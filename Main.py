@@ -19,7 +19,7 @@ def creacion_de_usuario():
     usuario = input("Nombre de usuario:")
     contraseña = input("Ingresa la contraseña:")
     usuarios[usuario] = contraseña
-    print("El usuario '{usuario}' se creo correctamente ")
+    print(f"El usuario '{usuario}' se creo correctamente ")
 
 #lista de usuarios disponibles para el uso
 def listar_usuarios():

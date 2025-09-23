@@ -1,1 +1,3 @@
-#para que pueda detectar el usuario agregar una variable que guarde el usuario con el que unicamente iniciaste sesión y luego utilice ese mismo para hacer el envio y la recepción
+lean.- para que pueda detectar el usuario agregar una variable que guarde el usuario con el que unicamente iniciaste sesión y luego utilice ese mismo para hacer el envio y la recepción
+lean.- cambiar funciones a clases distintas
+23/09
