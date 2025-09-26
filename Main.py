@@ -1,51 +1,65 @@
 # defino los usuarios que pueden ingresar al correo
-
-usuarios = {
-    "admin": "admin"
-}
-
-def inicio_sesion():
-    print("inicio de sesion")
-    usuario = input("Usuario:")
-    contraseña = input("Contraseña:")
-    if usuarios.get(usuario) == contraseña:
-        print("\nUsuario registrado")
-    else:
-        print("\nUsuario no registrado\n")
-
-#crea los usuarios que el usuario quiera
-def creacion_de_usuario(): 
-    print("Creción de usuario")
-    usuario = input("Nombre de usuario:")
-    contraseña = input("Ingresa la contraseña:")
-    usuarios[usuario] = contraseña
-    print(f"El usuario '{usuario}' se creo correctamente ")
-
-#lista de usuarios disponibles para el uso
-def listar_usuarios():
-    print("Los correos cargados son:")
-    for b in usuarios:
-        print(b)
     
-#muestreo del menu principal
-def menu_principal():
-    while True:
-        print("¿Que desea hacer?")
-        print("1) Iniciar sesion")
-        print("2) Crear usuario")
-        print("3) Listar usuarios\n")
+class usuarios:
+    def __init__(self, nombre, contraseña):
+        self.nombre = nombre
+        self.contraseña = contraseña
 
-        #condicion para elegir la opción del menu
-        opcion = input("opcion:")
-        if opcion == "1": 
-            inicio_sesion()
-        elif opcion == "2":
-            creacion_de_usuario()
-        elif opcion == "3":
-            listar_usuarios()
+    def existente(self,contraseña):
+        return self.contraseña == contraseña
 
+class funciones_usuario:
+    def __init__(self):
+        self.usuarios = []
 
-menu_principal()
+    def inicio_sesion(self):
+        nombre = input("Ingresa tu correo: ")
+        contraseña = input("Ingresa tu contraseña: ")
+
+        #busco en la base que el usuario coincida con su contraseña
+        for u in self.usuarios:
+            if u.nombre == nombre: 
+                if u.contraseña == contraseña:
+                    print("\nbienvenido al sistema de correos!\n")
+                    return u
+                else:
+                    print("\nTu usuario o contraseña son incorrectos.\n")
+                    return None
+        print("\nTu usuario o contraseña son incorrectos.\n")
+        return None
+    
+    def creacion_usuario(self):
+        nombre = input("nombre de usuario: ")
+        contraseña = input("ingresa tu contraseña: ")
+
+        for u in self.usuarios:
+            if u.nombre == nombre:
+                print("\nusuario ya existente, porfavor, ingresa otro correo\n")
+                return
+        self.usuarios.append(usuarios(nombre,contraseña))
+        print(f"\n{nombre} ingreso correctamente\n")
+    
+    def menu_principal(self):
+        while True:
+            print("¿Que desea hacer?")
+            print("1) Iniciar sesion")
+            print("2) Crear usuario")
+            print("3) Listar usuarios")
+            print("4) Salir\n")
+
+            #condicion para elegir la opción del menu
+            opcion = input("opcion: ")
+            if opcion == "1": 
+                self.inicio_sesion()
+            elif opcion == "2":
+                self.creacion_usuario()
+            elif opcion == "3":
+                listar_usuarios()
+            elif opcion == "4":
+                break
+
+men = funciones_usuario()
+men.menu_principal()
 
 
 
