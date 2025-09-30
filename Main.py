@@ -1,5 +1,15 @@
 # defino los usuarios que pueden ingresar al correo
-    
+class mensaje:
+    remitente: str
+    destinatario: str
+    asunto: str
+    cuerpo: str
+
+class user: 
+    def __init__(self,email: str):
+        self.email = email
+        self.bandeja = []
+        
 class usuarios:
     def __init__(self, nombre, contraseña):
         self.nombre = nombre
@@ -7,7 +17,20 @@ class usuarios:
 
     def existente(self,contraseña):
         return self.contraseña == contraseña
+    
+    def email(self):
+        return self.email
+    
+    def recibir(self,msg: mensaje):
+        self.append(msg)
 
+    def listar(self):
+        return list(self.bandeja)
+    
+class ServidorCorreo:
+    def __init__(self):
+        self.usuarios = {}
+    
 class funciones_usuario:
     def __init__(self):
         self.usuarios = []
@@ -45,7 +68,10 @@ class funciones_usuario:
             print("1) Iniciar sesion")
             print("2) Crear usuario")
             print("3) Listar usuarios")
-            print("4) Salir\n")
+            print("4) Registrar correo (Servidor)")
+            print("5) Enviar mensaje (Servidor)")
+            print("6) Ver bandeja (Servidor)")
+            print("7) Salir\n")
 
             #condicion para elegir la opción del menu
             opcion = input("opcion: ")
@@ -54,8 +80,14 @@ class funciones_usuario:
             elif opcion == "2":
                 self.creacion_usuario()
             elif opcion == "3":
-                listar_usuarios()
+                self.listar_usuarios()
             elif opcion == "4":
+                
+            elif opcion == "5":
+                
+            elif opcion == "6":
+                
+            elif opcion == "7":
                 break
 
 men = funciones_usuario()
